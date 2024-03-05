@@ -14,10 +14,13 @@ Components dibagi menjadi 2 :
 - buat file beserta functionnya 
 - penamaan sebuah function component harus PascalCase bukan camelCase , tujuan supaya bisa dibedakan antara function native bawaan react, atau function javascript biasa.
 
-# export VS module.exports
-- exports / export defaults = digunakan ketika kita menggunakan versi ModuleJs (Versi terbaru, biasanya client side pake ModuleJs)
+# ModuleJs VS CommonJs (Export & Import)
+## ModuleJs (Default client)
+- export = bisa export multiple value, importnya dengan cara di destruct nama spesificnya
+- export default = hanya untuk export single value importnya bisa di assign dalam nama apapun
 
-- module.exports = digunakan ketika kita menggunakan versi CommonJs (biasa nodejs defaultnya commonjs)
+## CommonJs (Default server)
+- module.exports = bisa export single / multiple seperti biasa, importnya menggunakan require
 
 # How to pass data between component?
 [Dokumentasi props](https://react.dev/learn/passing-props-to-a-component)
