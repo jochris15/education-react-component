@@ -285,170 +285,166 @@ export default function App() {
 
     return (
         <>
-            {/* Navbar */}
-            <nav className="navbar sticky top-0 z-10 p-3 bg-gray-100 shadow">
-                <div className="navbar-start">
-                    <a className="text-2xl font-bold px-6">
-                        <span className="text-blue-300">Login</span>
-                    </a>
-                </div>
-                <div className="navbar-center">
-                    <a className="text-2xl font-bold px-6">
-                        <span className="text-accent">Home</span>
-                    </a>
-                    <a className="text-2xl font-bold px-6">
-                        <span className="text-accent">Add product</span>
-                    </a>
-                </div>
-                <div className="navbar-end">
-                    <a className="text-2xl font-bold px-6">
-                        <span className="text-red-300">Logout</span>
-                    </a>
-                </div>
-            </nav>
+            <div className="p-5">
+                {/* navbar */}
+                <nav className="sticky top-0 z-10 p-3 bg-purple-400 border-2 border-black rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                    <div>
+                        <a className="text-2xl font-bold px-6 cursor-pointer">
+                            <span>Home</span>
+                        </a>
+                        <a className="text-2xl font-bold px-6 cursor-pointer">
+                            <span>Front-end Intro</span>
+                        </a>
+                        <a className="text-2xl font-bold px-6 cursor-pointer">
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </nav>
+                <br />
 
-            {/* Home */}
-            <div id="PAGE-HOME" className="p-5">
-                {/* search */}
-                <form action="" method="get" className="flex justify-center items-center">
-                    <input
-                        type="search"
-                        name="search"
-                        placeholder="Search"
-                        className="input input-bordered input-accent w-24 md:w-auto mx-1 input-sm"
-                    />
-                </form>
+                {/* login */}
+                <div className="min-h-screen flex items-center justify-center w-full">
+                    <div className="rounded-lg px-8 py-6 w-1/3 bg-blue-400 border-2 border-black rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                        <h1 className="text-2xl font-bold text-center mb-4">Login</h1>
+                        <form action="#">
+                            <div className="mb-4">
+                                <label htmlFor="email" className="block text-sm font-medium ">
+                                    Email Address
+                                </label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    className="rounded-2xl w-full px-3 py-2 border-2 border-black rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)]"
+                                    placeholder="your@email.com"
+                                    autoComplete='current-email'
+                                />
+                            </div>
+                            <div className="mb-4">
+                                <label htmlFor="password" className="block text-sm font-medium">
+                                    Password
+                                </label>
+                                <input
+                                    type="password"
+                                    id="password"
+                                    className="rounded-2xl w-full px-3 py-2 border-2 border-black rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)]"
+                                    placeholder="Enter your password"
+                                    autoComplete='current-password'
+                                />
+                            </div>
+                            <button className="w-full mt-5 justify-center py-2 px-4 border-2 border-black rounded-2xl text-sm font-medium text-white bg-gray-700 hover:bg-black shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                                Login
+                            </button>
+                        </form>
+                    </div>
+                </div>
 
-                <main className="grid grid-cols-2 gap-5 px-10 my-8 bg-white">
-                    {products.map(product => {
-                        return (
-                            <>
-                                <div className="card bg-gray-100 shadow-2xl flex flex-row">
-                                    <figure>
-                                        <img
-                                            src={product.imgUrl}
-                                            alt="product image"
-                                        />
-                                    </figure>
-                                    <div className="card-body flex-1">
-                                        <b>{product.description}</b>
+                {/* home */}
+                <div id="PAGE-HOME" className="min-h-screen flex items-center justify-center">
+                    <main className="my-5 bg-white grid grid-cols-4 gap-5">
+                        {products.map((product) => {
+                            return (
+                                <div key={product.id}>
+                                    {/* card */}
+                                    <div className="flex flex-col flex-start items-center bg-yellow-400 border-2 border-black p-5 rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)] h-full">
+                                        <div>
+                                            <img
+                                                src={product.imgUrl}
+                                                alt="product image"
+                                                className="border-2 border-black rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)]"
+                                            />
+                                        </div>
+                                        <div className="flex flex-col divide-y divide-black">
+                                            <b className="mt-5">{product.name}</b>
+                                            <p>
+                                                {product.description.length > 100 ? product.description.substring(0, 100) + " . . ." : product.description}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </>
-                        )
-                    })}
-                </main>
-            </div >
+                            )
+                        })}
+                    </main>
+                </div>
 
-            {/* Login */}
-            <div className="relative flex flex-col justify-center h-[85dvh] overflow-hidden bg-base-100">
-                <div className="w-full p-6 m-auto rounded-lg shadow-md lg:max-w-lg bg-base-200">
-                    <h1 className="text-3xl font-semibold text-center text-accent-focus">
-                        Log In
-                    </h1>
 
-                    <form className="space-y-4">
+                {/* add form */}
+                <form className="p-5 mt-5 border-2 border-black rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)] bg-red-400">
+                    <h1 className="text-2xl font-bold text-center mb-4">Add New Product</h1>
+                    <div className="grid grid-cols-2 gap-4">
                         <div>
                             <label className="label">
-                                <span className="text-base label-text">Email</span>
+                                <span className="font-bold">Name</span>
                             </label>
                             <input
                                 type="text"
-                                placeholder="Enter Email"
-                                className="w-full input input-bordered input-accent"
-                                autoComplete='current-email'
+                                placeholder="Enter Name"
+                                className="rounded-2xl w-full px-3 py-2 border-2 border-black rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)]"
                             />
                         </div>
                         <div>
                             <label className="label">
-                                <span className="text-base label-text">Password</span>
+                                <span className="font-bold">Description</span>
                             </label>
                             <input
-                                type="password"
-                                placeholder="Enter Password"
-                                className="w-full input input-bordered input-accent"
-                                autoComplete='current-password'
+                                type="text"
+                                placeholder="Enter Description"
+                                className="rounded-2xl w-full px-3 py-2 border-2 border-black rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)]"
                             />
                         </div>
                         <div>
-                            <button className="btn btn-accent">Log In</button>
+                            <label className="label">
+                                <span className="font-bold">Price</span>
+                            </label>
+                            <input
+                                type="number"
+                                placeholder="Enter Price"
+                                className="rounded-2xl w-full px-3 py-2 border-2 border-black rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)]"
+                            />
                         </div>
-                    </form>
-                </div>
-            </div>
-
-            {/* add product form */}
-            <form>
-                <div className=" grid grid-cols-2 gap-4">
-                    <div>
-                        <label className="label">
-                            <span className="text-base label-text">Name</span>
-                        </label>
-                        <input
-                            type="text"
-                            placeholder="Name"
-                            className="w-full input input-bordered input-accent"
-                        />
+                        <div>
+                            <label className="label">
+                                <span className="font-bold">Stock</span>
+                            </label>
+                            <input
+                                type="number"
+                                placeholder="Enter Stock"
+                                className="rounded-2xl w-full px-3 py-2 border-2 border-black rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)]"
+                            />
+                        </div>
+                        <div>
+                            <label className="label">
+                                <span className="font-bold">Image (URL)</span>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Enter Image URL"
+                                className="rounded-2xl w-full px-3 py-2 border-2 border-black rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)]"
+                            />
+                        </div>
+                        <div>
+                            <label className="label">
+                                <span className="font-bold">Category</span>
+                            </label>
+                            <select
+                                className="rounded-2xl w-full px-3 py-2 border-2 border-black rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)]"
+                                name="category"
+                                id=""
+                            >
+                                {categories.map((c) => {
+                                    return (
+                                        <option key={c.id} value={c.id}>{c.name}</option>
+                                    )
+                                })}
+                            </select>
+                        </div>
                     </div>
-                    <div>
-                        <label className="label">
-                            <span className="text-base label-text">Description</span>
-                        </label>
-                        <input
-                            type="text"
-                            placeholder="Enter Description"
-                            className="w-full input input-bordered input-accent"
-                        />
+                    <div className="mt-5">
+                        <button className="w-full mt-5 justify-center py-2 px-4 border-2 border-black rounded-2xl text-sm font-medium text-white bg-gray-700 hover:bg-black shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                            Add New Product
+                        </button>
                     </div>
-                    <div>
-                        <label className="label">
-                            <span className="text-base label-text">Price</span>
-                        </label>
-                        <input
-                            type="number"
-                            placeholder="Enter Price"
-                            className="w-full input input-bordered input-accent"
-                        />
-                    </div>
-                    <div>
-                        <label className="label">
-                            <span className="text-base label-text">Stock</span>
-                        </label>
-                        <input
-                            type="number"
-                            placeholder="Enter Stock"
-                            className="w-full input input-bordered input-accent"
-                        />
-                    </div>
-                    <div>
-                        <label className="label">
-                            <span className="text-base label-text">Image (URL)</span>
-                        </label>
-                        <input
-                            type="text"
-                            placeholder="Image URL"
-                            className="w-full input input-bordered input-accent"
-                        />
-                    </div>
-                    <div>
-                        <label className="label">
-                            <span className="text-base label-text">Category</span>
-                        </label>
-                        <select
-                            className="w-full input input-bordered input-accent"
-                            name="category"
-                            id=""
-                        >
-                            {categories.map(c => {
-                                return <option key={c.id} value={c.id}>{c.name}</option>
-                            })}
-                        </select>
-                    </div>
-                </div>
-                <div className='mt-5'>
-                    <button className="btn btn-accent w-full">Add New Product</button>
-                </div>
-            </form>
+                </form>
+            </div >
         </>
     )
 }
