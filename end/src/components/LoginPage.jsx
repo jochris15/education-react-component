@@ -1,11 +1,16 @@
-export default function LoginPage() {
+export default function LoginPage({ setPage }) {
+    function handleLogin(e) {
+        e.preventDefault()
+        setPage('home')
+    }
+
     return (
         <>
             {/* login */}
             <div className="min-h-screen flex items-center justify-center w-full">
                 <div className="rounded-lg px-8 py-6 w-1/3 bg-blue-400 border-2 border-black rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)]">
                     <h1 className="text-2xl font-bold text-center mb-4">Login</h1>
-                    <form action="#">
+                    <form onSubmit={handleLogin}>
                         <div className="mb-4">
                             <label htmlFor="email" className="block text-sm font-medium ">
                                 Email Address

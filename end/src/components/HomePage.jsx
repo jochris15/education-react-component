@@ -1,6 +1,7 @@
 import { useState } from "react";
+import Navbar from '../components/Navbar'
 
-export default function HomePage() {
+export default function HomePage({ setPage }) {
     const [products, setProducts] = useState([
         {
             "id": 36,
@@ -222,6 +223,7 @@ export default function HomePage() {
 
     return (
         <>
+            <Navbar setPage={setPage} />
             {/* home */}
             <div id="PAGE-HOME" className="min-h-screen flex items-center justify-center">
                 <main className="my-5 bg-white grid grid-cols-4 gap-5">

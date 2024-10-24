@@ -24,3 +24,6 @@ Components dibagi menjadi 2 :
 
 # How to pass data between component?
 [Dokumentasi props](https://react.dev/learn/passing-props-to-a-component)
+
+# How to trigger function in different component?
+Sebenarnya sama aja seperti props, tetapi penamaannya berbeda, jika kita passing function lalu di trigger di component lain disebut **Emit**

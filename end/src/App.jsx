@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Navbar from './components/Navbar'
 import LoginPage from './components/LoginPage'
 import HomePage from './components/HomePage'
 import AddProductPage from './components/AddProductPage'
@@ -10,10 +9,9 @@ export default function App() {
     return (
         <>
             <div className="p-5">
-                <Navbar setPage={setPage} />
-                {page === 'login' && <LoginPage />}
-                {page === 'home' && <HomePage />}
-                {page === 'add' && <AddProductPage />}
+                {page === 'login' && <LoginPage setPage={setPage} />}
+                {page === 'home' && <HomePage setPage={setPage} />}
+                {page === 'add' && <AddProductPage setPage={setPage} />}
             </div >
         </>
     )

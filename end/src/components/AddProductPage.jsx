@@ -1,6 +1,7 @@
 import { useState } from "react"
+import Navbar from '../components/Navbar'
 
-export default function AddProductPage() {
+export default function AddProductPage({ setPage }) {
     const [categories, setCategories] = useState([
         {
             "id": 1,
@@ -66,6 +67,7 @@ export default function AddProductPage() {
 
     return (
         <>
+            <Navbar setPage={setPage} />
             {/* add form */}
             <form className="p-5 mt-5 border-2 border-black rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)] bg-red-400">
                 <h1 className="text-2xl font-bold text-center mb-4">Add New Product</h1>
