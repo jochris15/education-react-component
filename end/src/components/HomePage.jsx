@@ -1,9 +1,6 @@
-
 import { useState } from "react";
-import Card from "./Card";
-import Navbar from "./Navbar";
 
-export default function HomePage({ setPage }) {
+export default function HomePage() {
     const [products, setProducts] = useState([
         {
             "id": 36,
@@ -225,27 +222,34 @@ export default function HomePage({ setPage }) {
 
     return (
         <>
-            <Navbar setPage={setPage} />
-            {/* Home */}
-            <div id="PAGE-HOME" className="p-5">
-                {/* search */}
-                <form action="" method="get" className="flex justify-center items-center">
-                    <input
-                        type="search"
-                        name="search"
-                        placeholder="Search"
-                        className="input input-bordered input-accent w-24 md:w-auto mx-1 input-sm"
-                    />
-                </form>
-
-                <main className="grid grid-cols-2 gap-5 px-10 my-8 bg-white">
-                    {products.map(product => {
+            {/* home */}
+            <div id="PAGE-HOME" className="min-h-screen flex items-center justify-center">
+                <main className="my-5 bg-white grid grid-cols-4 gap-5">
+                    {products.map((product) => {
                         return (
-                            <Card product={product} key={product.id} />
+                            <div key={product.id}>
+                                {/* card */}
+                                <div className="flex flex-col flex-start items-center bg-yellow-400 border-2 border-black p-5 rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)] h-full">
+                                    <div>
+                                        <img
+                                            src={product.imgUrl}
+                                            alt="product image"
+                                            className="border-2 border-black rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)]"
+                                        />
+                                    </div>
+                                    <div className="flex flex-col divide-y divide-black">
+                                        <b className="mt-5">{product.name}</b>
+                                        <p>
+                                            {product.description.length > 100 ? product.description.substring(0, 100) + " . . ." : product.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         )
                     })}
                 </main>
-            </div >
+            </div>
+
         </>
     )
 }
