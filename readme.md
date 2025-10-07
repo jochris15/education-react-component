@@ -27,3 +27,11 @@ Components dibagi menjadi 2 :
 
 # How to trigger function in different component?
 Sebenarnya sama aja seperti props, tetapi penamaannya berbeda, jika kita passing function lalu di trigger di component lain disebut **Emit**
+
+# Conditional rendering
+[Dokumentasi Conditional Rendering](https://react.dev/learn/conditional-rendering)
+
+Conditional rendering adalah teknik untuk menampilkan elemen atau komponen tertentu berdasarkan kondisi tertentu. Ada beberapa cara untuk melakukan conditional rendering di React:
+1. **If-Else Statement**: Menggunakan pernyataan if-else di dalam fungsi render.
+2. **Ternary Operator**: Menggunakan operator ternary untuk memilih antara dua elemen.
+3. **Logical AND (&&) Operator**: Menggunakan operator && untuk menampilkan elemen hanya jika kondisi tertentu terpenuhi.
