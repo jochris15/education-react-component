@@ -63,7 +63,7 @@ function App() {
           <main className="my-5 bg-white grid grid-cols-4 gap-5">
             {products.map((product, index) => {
               return (
-                <div className={index % 2 === 0 ? "bg-yellow-400 h-full flex flex-col justify-center items-center border-2 border-black p-5 rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)]" : "bg-blue-400 h-full flex flex-col justify-center items-center border-2 border-black p-5 rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)]"} key={el.id}>
+                <div className={index % 2 === 0 ? "bg-yellow-400 h-full flex flex-col justify-center items-center border-2 border-black p-5 rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)]" : "bg-blue-400 h-full flex flex-col justify-center items-center border-2 border-black p-5 rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)]"} key={index}>
                   <div className="flex flex-1">
                     <img
                       src={product.imgUrl}
