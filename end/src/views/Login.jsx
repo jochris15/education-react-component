@@ -1,15 +1,22 @@
 import { useState } from "react"
 
-export default function LoginPage({ setPage }) {
+export default function Login({ setPage }) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
+    function handleSubmit(e) {
+        e.preventDefault()
+        console.log("ceritanya ada proses login...");
+        setPage("home")
+    }
+
     return (
         <>
+            {/* login */}
             <div className="min-h-screen flex items-center justify-center w-full">
                 <div className="rounded-lg px-8 py-6 w-1/3 bg-blue-400 border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)]">
                     <h1 className="text-2xl font-bold text-center mb-4">Login</h1>
-                    <form action="#">
+                    <form action="#" onSubmit={handleSubmit}>
                         <div className="mb-4">
                             <label htmlFor="email" className="block text-sm font-medium ">
                                 Email Address : <b>{email}</b>
@@ -34,7 +41,7 @@ export default function LoginPage({ setPage }) {
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
-                        <button className="w-full mt-5 justify-center py-2 px-4 border-2 border-black rounded-2xl text-sm font-medium text-white bg-gray-700 hover:bg-black shadow-[2px_2px_0px_rgba(0,0,0,1)]" onClick={() => setPage("home")}>
+                        <button className="w-full mt-5 justify-center py-2 px-4 border-2 border-black rounded-2xl text-sm font-medium text-white bg-gray-700 hover:bg-black shadow-[2px_2px_0px_rgba(0,0,0,1)]">
                             Login
                         </button>
                     </form>
